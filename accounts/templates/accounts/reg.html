@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    /* Add your custom CSS here */
+    .card-img-top {
+      width: auto;
+      height: 300px;
+      object-fit: cover;
+    }
+    
+    .card-body td {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <div class="container px-1 px-md-5 px-lg-1 px-xl-5 py-4 mx-auto">
+
+        <!-- Page Heading -->
+        <h1 class="bg-info text-white text-center">Profile</h1>
+        </div>          
+        <!-- Main Content Here -->
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-3 ">
+            {% comment %} {% if user.profile.image %} {% endcomment %}
+                {% comment %} <img src="{{user.profile.image.url}}" class="rounded float-right" height="300px" width="300px"> {% endcomment %}
+            {% comment %} {% else %} {% endcomment %}
+                <img src="https://media.istockphoto.com/vectors/user-authentication-icon-vector-privacy-emblem-personal-protection-vector-id586713710" class="rounded float-right" height="300px" width="300px">
+            {% comment %} {% endif %} {% endcomment %}
+          </div>
+          <div class="card o-hidden border-0 shadow-lg  col-lg-5">
+                <div class="card-header">
+                    Profile
+                </div>
+                <div class="card-body">
+                  <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                          <p>{{field.label_tag}}</p>
+                          <p>{{field}}</p>
+                          <p>{{field.errors}}</p>
+                     {% endfor %}
+                  </form>
+                  
+                </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
