@@ -23,8 +23,7 @@ staticfiles/
 *.secret
 
 # Virtual environment
-.env/
-venv/
+.env
 
 # IDE files
 *.idea/
